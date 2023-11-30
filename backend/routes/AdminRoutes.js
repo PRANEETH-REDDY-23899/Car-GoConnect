@@ -1,8 +1,8 @@
 const express = require("express")
-const User = require("../model/User")
+const Admin = require("../model/Admin")
 var nodemailer = require('nodemailer');
 var hbs = require('nodemailer-express-handlebars');
-const UserInfoRoutes = express.Router()
+const AdminRoutes = express.Router()
 const path = require('path');
 const jwt = require("jsonwebtoken");
 const maxAge = 3 * 24 * 60 * 60;
@@ -10,20 +10,15 @@ const createToken = (id) => {
     return jwt.sign({ id }, "Car booking secret key", {
       expiresIn: maxAge,
     });
-  };
+};
 
 const transporter = nodemailer.createTransport({
     port: 465,               // true for 465, false for other ports
     host: "smtp.gmail.com",
-      //  auth: {
-      //       user: 'jobsportelmain@gmail.com',
-      //       pass: 'paxvwxfxwzvzkhih',
-      //    },
-
-      auth: {
-        user: 'cargoconnectconnect@gmail.com',
-        pass: 'grtl kvdy gnxr ipgr',
-      },
+       auth: {
+            user: 'jobsportelmain@gmail.com',
+            pass: 'paxvwxfxwzvzkhih',
+         },
     secure: true,
 });
 
@@ -43,7 +38,26 @@ transporter.use('compile', hbs(handlebarOptions));
 
 console.log(transporter)
 
-UserInfoRoutes.post("/userinfo",async (req, res) => {
+AdminRoutes.post("/verifyadmin", async (req,res)=>{
+    
+    try{
+        const admin = await Admin.findOne({username:req.body.username,p:req.body.p})
+        console.log(admin)
+        if(admin){
+            res.send({
+                value:true
+            })
+        }else{
+            res.send({
+                value:false
+            })
+        }
+    }catch(err){
+            res.send(err)
+    }
+})
+
+AdminRoutes.post("/userinfo",async (req, res) => {
     console.log(req.body,"user Info")
     try {
         const userinfo = new User(req.body)
@@ -61,43 +75,9 @@ UserInfoRoutes.post("/userinfo",async (req, res) => {
     
 })
 
-UserInfoRoutes.post("/verifyotp",async (req, res) => {
-    console.log(req.body)
-    var otp = Math.floor(Math.random() * 9000 + 1000);
 
-    console.log(req.body)
-    const mailData = {
-          from: 'cargoconnectconnect@gmail.com',  
-          to: req.body.mail,
-          subject: otp +'- Verify Otp',
-          template:'email',
-          context:{
-             name:"",
-             code:otp,
-             mail:req.body.email
 
-          }
-       
-        };
-        transporter.sendMail(mailData, function (err, info) {
-            if(err){
-                console.log(err)
-               res.json({
-                
-                message:"server error try again",
-               })}
-            else{
-              res.json({
-                otp:otp,
-                message:"OTP sent to "+req.body.mail,
-              })
-            }
-         });
-       
-   
-})
-
-UserInfoRoutes.get("/checkmail/:mail", async (req,res)=>{
+AdminRoutes.get("/checkmail/:mail", async (req,res)=>{
      console.log(req.params)
      try{
         const mail= await User.findOne({m:req.params.mail})
@@ -119,7 +99,7 @@ UserInfoRoutes.get("/checkmail/:mail", async (req,res)=>{
      }
 })
 
-UserInfoRoutes.post("/SendCookie",(req,res)=>{
+AdminRoutes.post("/SendCookie",(req,res)=>{
   console.log("Send cookie",req.body)
     try{
     const token = createToken(req.body.id);
@@ -131,7 +111,7 @@ UserInfoRoutes.post("/SendCookie",(req,res)=>{
     }
 })
 
-UserInfoRoutes.post("/VerifyUser", (req, res, next) => {
+AdminRoutes.post("/VerifyUser", (req, res, next) => {
     const token = req.body.jwt;
     if (token) {
       jwt.verify(
@@ -155,5 +135,6 @@ UserInfoRoutes.post("/VerifyUser", (req, res, next) => {
     }
   })
 
-module.exports=UserInfoRoutes
+module.exports=AdminRoutes
+
 
