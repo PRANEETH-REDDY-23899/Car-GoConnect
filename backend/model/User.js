@@ -1,4 +1,6 @@
 const mongoose=require('mongoose');
+ 
+
 const User= new mongoose.Schema({
     p:{
         type:String,
@@ -19,5 +21,4 @@ const User= new mongoose.Schema({
 
     },
 })
-
 module.exports =mongoose.model("User", User);
