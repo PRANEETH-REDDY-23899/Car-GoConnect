@@ -22,7 +22,7 @@ const transporter = nodemailer.createTransport({
 
       auth: {
         user: 'cargoconnectconnect@gmail.com',
-        pass: 'grtl kvdy gnxr ipgr',
+        pass: '',
       },
     secure: true,
 });
