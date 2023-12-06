@@ -12,7 +12,7 @@ import AdjustIcon from '@mui/icons-material/Adjust';
 
 // This key was created specifically for the demo in mui.com.
 // You need to create a new one for your application.
-const GOOGLE_MAPS_API_KEY = '';
+const GOOGLE_MAPS_API_KEY = 'AIzaSyDj4xadEEkLNPW21POkLuNqFWrsPEvUX6A';
 
 function loadScript(src, position, id) {
   if (!position) {
