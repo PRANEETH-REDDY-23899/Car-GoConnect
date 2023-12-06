@@ -40,7 +40,7 @@ export default function Login() {
       >
       </CheckBoxCustom>
       <Input placeholder={"Password"} BorderColor={"black"} mt={2} type="password" mx={2} disabled={checked} state={password} setstate={setpassword}></Input>
-      {/* <Error msg={true?"Coundn't Find the Careersstudio account associated with this email":""} mb={1} mx={2}></Error> */}
+      {/* <Error msg={true?"Coundn't Find the Car-Go Connect account associated with this email":""} mb={1} mx={2}></Error> */}
       {/* <ForgotPasswordText mx={2}> </ForgotPasswordText> */}
       <ButtonCustom
         text={"Signin"}

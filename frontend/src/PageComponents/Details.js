@@ -40,7 +40,7 @@ export default function Details() {
       <Input placeholder={"Firstname"} mt={2} BorderColor={"black"} type="text" mx={2} state={Firstname} setstate={setFirstname}></Input>
       
       <Input placeholder={"Lastname"} BorderColor={"black"} mt={2} type="text" mx={2}  state={Lastname} setstate={setLastname}></Input>
-      {/* <Error msg={true?"Coundn't Find the Careersstudio account associated with this email":""} mb={1} mx={2}></Error> */}
+      {/* <Error msg={true?"Coundn't Find the Car-Go Connect account associated with this email":""} mb={1} mx={2}></Error> */}
       {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
         
       <DatePicker sx={{px:2,my:2,mb:2}} slotProps={{ textField: { size: 'small' } }} value={dob} onChange={(v)=>{

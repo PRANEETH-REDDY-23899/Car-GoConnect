@@ -41,14 +41,14 @@ export const Signin = async (Email,Password,Checked,Error,navigate,SigninData,se
                             Error("Please Enter the Valid Mail and Password")
                            }
                         }else{
-                            Error("Couldn’t find a Careersstudio account associated with this email. Try again or create an account .")
+                            Error("Couldn’t find a Car-Go Connect account associated with this email. Try again or create an account .")
                         }
                          
                      }else{
                         Error("Password Should be atleast 8 Characters")
                      }
                 }).catch(()=>{
-                    Error("Couldn’t find a Careersstudio account associated with this email. Try again or create an account .")
+                    Error("Couldn’t find a Car-Go Connect account associated with this email. Try again or create an account .")
                 })
                  
                  

@@ -15,11 +15,7 @@ const createToken = (id) => {
 const transporter = nodemailer.createTransport({
     port: 465,               // true for 465, false for other ports
     host: "smtp.gmail.com",
-      //  auth: {
-      //       user: 'jobsportelmain@gmail.com',
-      //       pass: 'paxvwxfxwzvzkhih',
-      //    },
-
+    
       auth: {
         user: 'cargoconnectconnect@gmail.com',
         pass: 'grtl kvdy gnxr ipgr',

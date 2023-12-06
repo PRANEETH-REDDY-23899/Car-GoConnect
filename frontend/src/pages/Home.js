@@ -229,6 +229,7 @@ export default function Home() {
                                             <Typography sx={{ fontWeight: "500", fontSize: "14px" }} >{"Members : " + ride.Members} </Typography>
                                             <Typography sx={{ fontWeight: "500", fontSize: "14px" }}>{moment(ride.Date).format("DD,MMM YYYY")} </Typography>
                                             <Typography sx={{ fontWeight: "500", fontSize: "14px" }} >{ride.time} </Typography>
+                                            <Typography sx={{ fontWeight: "bold", fontSize: "25px" }} >{"Price(in $) : " + ride.price} </Typography>
 
                                         </Box>
 

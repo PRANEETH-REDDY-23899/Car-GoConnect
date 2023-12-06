@@ -32,8 +32,8 @@ export default function SignUp() {
       <Input placeholder={"Email"} mt={2} BorderColor={"black"} type="text" mx={2} state={Email} setstate={setEmail}></Input>
       <Error msg={Err} mb={1} mx={2.5}></Error>
       <Input placeholder={"Password"} BorderColor={"black"} mt={2} type="password" mx={2}  state={password} setstate={setpassword}></Input>
-      {/* <Error msg={true?"Coundn't Find the Careersstudio account associated with this email":""} mb={1} mx={2}></Error> */}
-      <Typography sx={{fontSize:12,fontWeight:"500",mx:2,mt:1,alignSelf:"center",textAlign:"center"}}>By clicking "Accept & Join", you agree to Careersstudio <LinkText text={"Terms of Use"}></LinkText> , <LinkText text={"privacy policy"}></LinkText> , and <LinkText text={"Cookie Policy"}></LinkText> . </Typography>
+      {/* <Error msg={true?"Coundn't Find the Car-Go ConnectCar-Go Connect account associated with this email":""} mb={1} mx={2}></Error> */}
+      <Typography sx={{fontSize:12,fontWeight:"500",mx:2,mt:1,alignSelf:"center",textAlign:"center"}}>By clicking "Accept & Join", you agree to Car-Go Connect <LinkText text={"Terms of Use"}></LinkText> , <LinkText text={"privacy policy"}></LinkText> , and <LinkText text={"Cookie Policy"}></LinkText> . </Typography>
       <ButtonCustom
         text={"Accept & Join"}
         mx={2}
